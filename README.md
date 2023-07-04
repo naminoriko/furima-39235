@@ -1,24 +1,58 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false, unique: true |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| last_name          | string | null: false               |
+| first_name         | string | null: false               |
+| last_name_kana     | string | null: false               |
+| first_name_kana    | string | null: false               |
+| year_birthday      | string | null: false               |
+| month_birthday     | string | null: false               |
+| day_birthday       | string | null: false               |
 
-Things you may want to cover:
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :orders
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| name             | string     | null: false                    |
+| content          | string     | null: false                    |
+| category         | string     | null: false                    |
+| condition        | string     | null: false                    |
+| delivery_payment | string     | null: false                    |
+| sender_area      | string     | null: false                    |
+| number_of_day    | integer    | null: false                    |
+| price            | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_one :order
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
+## order テーブル
 
-* Deployment instructions
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| card             | string     | null: false                    |
+| post_code        | string     | null: false                    |
+| prefercture      | string     | null: false                    |
+| city             | string     | null: false                    |
+| banch            | string     | null: false                    |
+| building         | string     | null: false                    |
+| phone_number     | integer    | null: false                    |
+| user             | reference  | null: false, foreign_key: true |
+| item             | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :order
