@@ -42,7 +42,7 @@
 | post_code        | string     | null: false                    |
 | sender_area_id   | string     | null: false                    |
 | city             | string     | null: false                    |
-| banch            | string     | null: false                    |
+| banchi           | string     | null: false                    |
 | building         | string     |                                |
 | phone_number     | string     | null: false                    |
 | order            | references | null: false, foreign_key: true |
