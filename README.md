@@ -9,7 +9,7 @@
 | first_name         | string | null: false               |
 | last_name_kana     | string | null: false               |
 | first_name_kana    | string | null: false               |
-| birthday           | string | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
 - has_many :items
@@ -40,15 +40,15 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | post_code        | string     | null: false                    |
-| prefercture      | string     | null: false                    |
+| sender_area_id   | string     | null: false                    |
 | city             | string     | null: false                    |
 | banch            | string     | null: false                    |
 | building         | string     |                                |
 | phone_number     | string     | null: false                    |
-| user             | references | null: false, foreign_key: true |
+
 
 ### Association
-- has_many    :orders
+- belongs_to  :order
 
 
 ##  orders テーブル
@@ -57,7 +57,6 @@
 | ---------------- | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
 | item             | references | null: false, foreign_key: true |
-| adress           | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :item
