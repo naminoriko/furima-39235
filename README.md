@@ -40,7 +40,7 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | post_code        | string     | null: false                    |
-| sender_area_id   | string     | null: false                    |
+| sender_area_id   | integer    | null: false                    |
 | city             | string     | null: false                    |
 | banchi           | string     | null: false                    |
 | building         | string     |                                |
