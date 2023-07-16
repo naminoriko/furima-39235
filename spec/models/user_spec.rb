@@ -50,7 +50,7 @@ RSpec.describe User, type: :model do
       @user.last_name = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Last name can't be blank", "Last name is invalid")
-    end   
+    end
     it 'first_nameが空では登録できない' do
       @user.first_name = ''
       @user.valid?
