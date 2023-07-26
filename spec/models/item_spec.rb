@@ -13,7 +13,9 @@ RSpec.describe Item, type: :model do
     end
     context 'アイテムが保存できない場合' do
       it 'imageがないとアイテムは保存できない' do
-        
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
       end     
       it "nameがないとアイテムは保存できない" do
         @item.name = ''
@@ -57,6 +59,9 @@ RSpec.describe Item, type: :model do
       end     
       
       it "ユーザーが紐付いていないとアイテムは保存できない" do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
       end
     end
   end
