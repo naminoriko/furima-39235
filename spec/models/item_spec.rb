@@ -27,28 +27,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Content can't be blank")
       end
-      it 'category_idがないとアイテムは保存できない' do
-        @item.category_id = ''
+      it 'category_idが1だとアイテムは保存できない' do
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
-      it 'condition_idがないとアイテムは保存できない' do
-        @item.condition_id = ''
+      it 'condition_idが1だとアイテムは保存できない' do
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
-      it 'delivery_payment_idがないとアイテムは保存できない' do
-        @item.delivery_payment_id = ''
+      it 'delivery_payment_idが1だとアイテムは保存できない' do
+        @item.delivery_payment_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery payment can't be blank")
       end
-      it 'sender_area_idがないとアイテムは保存できない' do
-        @item.sender_area_id = ''
+      it 'sender_area_idが1だとアイテムは保存できない' do
+        @item.sender_area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Sender area can't be blank")
       end
-      it 'number_of_day_idがないとアイテムは保存できない' do
-        @item.number_of_day_id = ''
+      it 'number_of_day_idが1だとアイテムは保存できない' do
+        @item.number_of_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Number of day can't be blank")
       end
