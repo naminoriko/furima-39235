@@ -60,7 +60,7 @@ RSpec.describe Item, type: :model do
       it 'priceは300円未満は保存できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
       it 'priceは9999999円を超えると保存できない' do
         @item.price = '10000000'
