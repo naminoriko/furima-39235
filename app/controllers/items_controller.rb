@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit]
-  before_action :item_set, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :item_set, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.order('created_at DESC')
@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   def edit
     if @item.user == current_user
-      render "edit"
+      render 'edit'
     else
       redirect_to root_path
     end
@@ -35,6 +35,15 @@ class ItemsController < ApplicationController
       redirect_to item_path(@item)
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @item.user == current_user
+       @item.destroy
+       redirect_to root_path
+    else
+      redirect_to root_path, alert: "You do not have permission to delete this item."
     end
   end
 
