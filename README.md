@@ -35,7 +35,7 @@
 - has_one    :order
 
 
-## adresses テーブル
+## addresses テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
