@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
 
   def index
+    @order_address = OrderAddress.new
   end
 
   def new
-    @order_address = OrderAddress.new
   end
 
   def create
@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
       @order_address.save
       redirect_to root_path
     else
-      render :new
+      render :index
     end
   end
 
