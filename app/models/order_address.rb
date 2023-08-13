@@ -10,8 +10,8 @@ class OrderAddress
   validates :sender_area_id, numericality: { other_than: 1, message: "can't be blank" }
 
   def save
-  order = Order.create(user_id: user_id, item_id: item_id)
-  Address.create(post_code: post_code, sender_area_id: sender_area_id, city: city, banchi: banchi, building: building, phone_number: phone_number, order_id: order.id)
+    order = Order.create(user_id: user_id, item_id: item_id)
+    Address.create(post_code: post_code, sender_area_id: sender_area_id, city: city, banchi: banchi, building: building, phone_number: phone_number, order_id: order.id)
   end
   
 end
