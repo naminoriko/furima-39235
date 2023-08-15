@@ -10,11 +10,11 @@ RSpec.describe OrderAddress, type: :model do
 
     context '内容に問題ない場合' do
       it 'すべての値が正しく入力されていれば保存できること' do
-       expect(@order_address).to be_valid
+        expect(@order_address).to be_valid
       end
       it 'buildingは空でも保存できること' do
-       @order_address.building = ''
-       expect(@order_address).to be_valid
+        @order_address.building = ''
+        expect(@order_address).to be_valid
       end
     end
 
@@ -27,7 +27,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
         @order_address.post_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
+        expect(@order_address.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
       end
       it 'sender_area_idを選択していないと保存できないこと' do
         @order_address.sender_area_id = 1
@@ -52,7 +52,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'phone_numberが10桁以上11桁以内の半角数値以外では保存できないこと' do
         @order_address.phone_number = '090-1234-5678'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number should be a half-width numeric value of 10 to 11 digits")
+        expect(@order_address.errors.full_messages).to include('Phone number should be a half-width numeric value of 10 to 11 digits')
       end
       it 'userが紐付いていないと保存できないこと' do
         @order_address.user_id = nil
