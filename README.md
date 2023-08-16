@@ -35,7 +35,7 @@
 - has_one    :order
 
 
-## adresses テーブル
+## addresses テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
@@ -62,4 +62,4 @@
 ### Association
 - belongs_to :item
 - belongs_to :user
-- has_one    :adress
+- has_one    :address

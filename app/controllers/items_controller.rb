@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.user == current_user
+    if @item.order.present? == false && @item.user == current_user
       render 'edit'
     else
       redirect_to root_path
@@ -40,10 +40,10 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.user == current_user
-       @item.destroy
-       redirect_to root_path
+      @item.destroy
+      redirect_to root_path
     else
-      redirect_to root_path, alert: "You do not have permission to delete this item."
+      redirect_to root_path, alert: 'You do not have permission to delete this item.'
     end
   end
 
