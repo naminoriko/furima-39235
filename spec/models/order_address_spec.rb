@@ -50,7 +50,6 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_numberが9桁以下では保存できないこと' do
-        binding.pry
         @order_address.phone_number = '090123456'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number should be a half-width numeric value of 10 to 11 digits')
