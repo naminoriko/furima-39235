@@ -5,6 +5,7 @@ set :application, "furima-39235"
 set :repo_url, "git@github.com:naminoriko/furima-39235.git"
 
 # Default branch is :master
+set :branch, "main"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
